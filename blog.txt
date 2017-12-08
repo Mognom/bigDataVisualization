@@ -90,3 +90,7 @@ o el código pero sin aparecer en motores de búsqueda u otras maneras de encont
 EJERCICIO 9 _____________________________________________________________________________
 
 En este apartado se propone mirar algunos ejemplos de aplicaciones desarrolladas con Shiny.
+
+La aplicación "Movie explorer" (http://shiny.rstudio.com/gallery/movie-explorer.html) permite analizar datos sobre películas y ver en un gráfico información sobre si ganarón un oscar o no. Cambiando las opciones de la gráfica se pueden ver cosas curiosas, como que la mayoria de películas que ganan un oscar tienden a tener menos ingresos en taquilla.
+
+Otra aplicación es "Superzip" (http://shiny.rstudio.com/gallery/superzip-example.html) que permite ver información sobre la población de las ciudades de américa, viendo así datos como los ingresos medios de un determinado pueblo o ciudad.
