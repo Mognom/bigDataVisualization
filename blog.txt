@@ -1,5 +1,92 @@
 
-Authors: Alejandro Rodríguez Fraga and María Salgado Iturrino
+				     --- BLOG ---
+				Visualization Practical Work
+				  Big Data 2017-2028
+
+En este documento recogemos los comentarios relevantes sobre el ejercicio propuesto de
+realizar el tutorial de Shiny.
 
 
+EJERCICIO 1 ____________________________________________________________________________
 
+RStudio es una herramienta que ya conocíamos y habíamos usado en otras asignaturas por 
+lo que ya la teníamos instalada y conocíamos sus funcionalidades más básicas. Este 
+apartado, por tanto, ha resultado trivial. 
+
+Hemos procedido a instalar el paquete "shiny".
+
+
+EJERCICIO 2 _____________________________________________________________________________
+
+Shiny ofrece una manera sorprendentemente sencilla e intuitiva de ejecutar aplicaciones. 
+Para este apartado procedemos a crear el directorio "my_app" y a lanzar nuestra primera
+aplicación.
+
+
+EJERCICIO 3 _____________________________________________________________________________
+
+En este apartado en el que se explica cada parte de una aplicación Shiny hemos aprendido
+a desarrollar una desde cero. 
+
+Conociendo previamente HTML resulta muy parecida la manera de producir contenidos de
+texto, imágenes y otros elementos y contenedores.
+
+Hemos procedido a crear el directorio "my_app" y a añadir los contenidos hasta lograr la
+similitud con la aplicación propuesta por el tutorial. 
+
+
+EJERCICIO 4 _____________________________________________________________________________
+
+Como continuación del apartado anterior, en este capítulo del tutorial aprendimos como 
+incluir widgets para poder interactuar con la interfaz. Al tener conocimientos previos de 
+Bootstrap, estos resultan concidos. 
+
+La ventaja que presenta usar elementos tan contrastados y probados es que con muy poco 
+código y esfuerzo se obtienen resultados visuales muy familiares para el usuario y de 
+gran calidad.
+
+
+EJERCICIO 5 _____________________________________________________________________________
+
+El primer contacto con la parte "server" de Shiny está muy bien guíado por la cuarta 
+lección del tutorial. En ella mediante dos sencillos bloques de texto se aprecia que hay
+inmediatez a la interacción del usuario con la interfaz sin tener que recargar toda la 
+página. 
+
+Relacionándolo con nuestros conocimientos anteriores nos resulta parecido a Ajax aunque 
+mucho más simple para el desarrollador.
+
+
+EJERCICIO 6 _____________________________________________________________________________
+
+La lógica no visual que una aplicación lleva por detrás es muy importante. Por ello, 
+tratar de entender el script "helpers.R" y aprender a utilizarlo desde el fichero de la 
+aplicación es una sección que nos parece imprescindible en este tutorial. Por este motivo
+es también a la que más tiempo hemos dedicado.
+
+
+EJERCICIO 7 _____________________________________________________________________________
+
+La aplicación "stockVis" utiliza el paquete "quantmod" que nos ha dado algunas dificultades
+de compatibilidad. AQUI FALTA DECIR CONCLUSION
+
+
+EJERCICIO 8 _____________________________________________________________________________
+
+Nos ha resultado muy útil que Shiny también se preocupe por el despliegue de la página y 
+proponga soluciones para ello. Para el desarrollo de todas las prácticas del Máster nosotros
+utilizamos GitHub por lo que tenemos los ficheros alojados en repositorios privados allí.
+
+Hemos probado a desplegar la aplicación del apartado 1 utilizando la solución anónima de 
+GitHub (http://gist.github.com/) a la que se puede acceder con el siguiente comando:
+runGist("542b4a077d69b7694f18555999b19715")
+
+Esta es la URL: https://gist.github.com/msalitu/542b4a077d69b7694f18555999b19715
+
+La hemos creado con la opción de que sea accesible solo para aquellos que conozcan la url
+o el código pero sin aparecer en motores de búsqueda u otras maneras de encontrarla.
+
+
+EJERCICIO 9 _____________________________________________________________________________
+
+En este apartado se propone mirar algunos ejemplos de aplicaciones desarrolladas con Shiny.
