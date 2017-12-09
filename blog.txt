@@ -62,18 +62,24 @@ EJERCICIO 6 ____________________________________________________________________
 La lógica no visual que una aplicación lleva por detrás es muy importante. Por ello, 
 tratar de entender el script "helpers.R" y aprender a utilizarlo desde el fichero de la 
 aplicación es una sección que nos parece imprescindible en este tutorial. Por este motivo
-es también a la que más tiempo hemos dedicado.
+es también a la que más tiempo hemos dedicado investigando.
 
 
 EJERCICIO 7 _____________________________________________________________________________
 
 La aplicación "stockVis" utiliza el paquete "quantmod" que nos ha dado algunas dificultades
-de compatibilidad. AQUI FALTA DECIR CONCLUSION
+de compatibilidad. Tuvimos que instalar libcurl4-openssl-dev para que se solucionaran los
+problemas de dependencias. Ha sido el apartado más costoso. 
+
+En este apartado hemos aprendido qué ejecuta realmente el programa al utilizar un widget
+(en el ejemplo un checkbox) y la mejor manera de hacerlo para optimizar el tiempo y las
+llamadas. Las expresiones reactivas mejoran la eficiencia del programa y su buen uso es
+clave para hacer aplicaciones de calidad.
 
 
 EJERCICIO 8 _____________________________________________________________________________
 
-Nos ha resultado muy útil que Shiny también se preocupe por el despliegue de la página y 
+Nos parece muy útil que Shiny también se preocupe por el despliegue de la página y 
 proponga soluciones para ello. Para el desarrollo de todas las prácticas del Máster nosotros
 utilizamos GitHub por lo que tenemos los ficheros alojados en repositorios privados allí.
 
@@ -91,6 +97,19 @@ EJERCICIO 9 ____________________________________________________________________
 
 En este apartado se propone mirar algunos ejemplos de aplicaciones desarrolladas con Shiny.
 
-La aplicación "Movie explorer" (http://shiny.rstudio.com/gallery/movie-explorer.html) permite analizar datos sobre películas y ver en un gráfico información sobre si ganarón un oscar o no. Cambiando las opciones de la gráfica se pueden ver cosas curiosas, como que la mayoria de películas que ganan un oscar tienden a tener menos ingresos en taquilla.
+La aplicación "Movie explorer" (http://shiny.rstudio.com/gallery/movie-explorer.html) permite 
+analizar datos sobre películas y ver en un gráfico información sobre si ganarón un oscar o no. 
+Cambiando las opciones de la gráfica se pueden ver cosas curiosas, como que la mayoria de 
+películas que ganan un oscar tienden a tener menos ingresos en taquilla.
 
-Otra aplicación es "Superzip" (http://shiny.rstudio.com/gallery/superzip-example.html) que permite ver información sobre la población de las ciudades de américa, viendo así datos como los ingresos medios de un determinado pueblo o ciudad.
+Otra aplicación es "Superzip" (http://shiny.rstudio.com/gallery/superzip-example.html) que 
+permite ver información sobre la población de las ciudades de América, viendo así datos como 
+los ingresos medios de un determinado pueblo o ciudad.
+
+
+CONLUSIÓN _______________________________________________________________________________
+
+La realización de este tutorial de Shiny nos ha permitido tomar un primer contacto con esta
+librería y nos ha dado la base para la realización del siguiente ejercicio de este proyecto.
+
+
