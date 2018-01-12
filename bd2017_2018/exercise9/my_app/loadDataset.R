@@ -1,9 +1,14 @@
+# 
+#  loadDataset.r
+#
+
+
 
  # install.packages("stringr")
  #  library(stringr)
 
-#  install.packages("jsonlite")
-#  library(jsonlite)
+#  
+
 
 # load data from json file
 
@@ -32,17 +37,25 @@
  # checkin_tbl <- as.data.frame(checkin_flat)
  # photos_tbl <- as.data.frame(photos_flat)
 
-business <- stream_in(file("./data/business-trunk.json"))
+# business <- stream_in(file("./data/business-trunk.json"))
+
+install.packages("jsonlite")
+library(jsonlite)
+
+bus_dat <- fromJSON(sprintf("[%s]", paste(readLines("./data/business.json"), collapse=",")))
+
+restaurants<-grep(pattern="Restaurants",bus_dat$categories)
+
+bars<-bus_rest<-bus_dat[restaurants,]
+
+birates <- data.frame(bus_rest$business_id, bus_rest$stars,
+                      bus_rest$longitude, bus_rest$latitude,
+                      bus_rest$state, 
+                      bus_rest$attributes$RestaurantsTakeOut, bus_rest$attributes$RestaurantsReservations,
+                      bus_rest$attributes$WiFi, bus_rest$attributes$Caters)
+
+cc<-complete.cases(birates)
+business<-birates[cc,]
+write.table(business,"business.dat")
 
 
-biz_dat <- fromJSON(sprintf("[%s]", paste(readLines("./data/business.json"), collapse=",")))
-
-restaurants<-grep(pattern="Restaurants",biz_dat$categories)
-
-bars<-biz_rest<-biz_dat[restaurants,]
-
-bizrates<-data.frame(biz_rest$business_id, biz_rest$stars,
-                     biz_rest$longitude,biz_rest$latitude, 
-                     biz_rest$state,
-                     biz_rest$attributes$`Take-out`,biz_rest$attributes$`Takes Reservations`,
-                     biz_rest$attributes$`Wi-Fi`,biz_rest$attributes$Caters)
