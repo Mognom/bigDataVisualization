@@ -28,34 +28,34 @@ shinyServer(
     
       # filter takeout only 
       if (input$takeout)
-        wo <- (business_filtered$bus_rest$attributes..Take.out. == TRUE)
+        wo <- (business_filtered$bus_rest.attributes.RestaurantsTakeOut == TRUE)
       else
-        wo <- (business_filtered$bus_rest$attributes..Take.out. == FALSE)
+        wo <- (business_filtered$bus_rest.attributes.RestaurantsTakeOut == FALSE)
       business_filtered<-business_filtered[wo,]
       
       # filter Reservations only 
       
       if (input$reserve)
-        wo <- (business_filtered$bus_rest$attributes..Takes.Reservations. == TRUE)
+        wo <- (business_filtered$bus_rest.attributes.RestaurantsReservations == TRUE)
       else
-        wo <- (business_filtered$bus_rest$attributes..Takes.Reservations. == FALSE)
+        wo <- (business_filtered$bus_rest.attributes.RestaurantsReservations == FALSE)
       business_filtered<-business_filtered[wo,]
       
       # filter WiFi only 
       
       if (input$wifi)
-        wo <- (business_filtered$bus_rest.attributes.wifi.== "free")
+        wo <- (business_filtered$bus_rest.attributes.WiFi== "free")
       else
-        wo <- (business_filtered$bus_rest.attributes.wifi. == FALSE)
+        wo <- (business_filtered$bus_rest.attributes.WiFi == FALSE)
       business_filtered<-business_filtered[wo,]
       
       
       # filter Caters only 
       
-      if (input$Caters)
-        wo <- (business_filtered$bus_rest.attributes.caters. == TRUE)
+      if (input$caters)
+        wo <- (business_filtered$bus_rest.attributes.Caters == TRUE)
       else
-        wo <- (business_filtered$bus_rest.attributes.caters. == FALSE)
+        wo <- (business_filtered$bus_rest.attributes.Caters == FALSE)
       business_filtered<-business_filtered[wo,]
       
       # filter on stars
