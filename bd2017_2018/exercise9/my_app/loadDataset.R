@@ -1,8 +1,11 @@
 
 
 install.packages("jsonlite")
+install.packages("leaflet")
+install.packages("UsingR")
 library(jsonlite)
-
+library(leaflet)
+library(UsingR)
 
 bus_dat <- fromJSON(sprintf("[%s]", paste(readLines("./data/business.json"), collapse=",")))
 
@@ -34,4 +37,4 @@ cc<-complete.cases(busrates)
 business<-busrates[cc,]
 write.table(business,"business.dat")
 
-
+tip <- fromJSON(sprintf("[%s]", paste(readLines("./data/tip.json"), collapse=",")))
