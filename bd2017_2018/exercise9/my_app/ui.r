@@ -22,20 +22,26 @@ shinyUI(pageWithSidebar(
   ),
   
   mainPanel(
-    h4("Map"),
+    h4("Interactive map"),
     leafletOutput("map",width="100%",height=500),
-    h4("Customers opinions"),
-    tabsetPanel(
-      id = 'dataset',
-      tabPanel("User comments", DT::dataTableOutput("tip")),
-      tabPanel( "Words cloud",
-        sidebarLayout(
-          sliderInput("freq","Minimum Frequency:", min = 1,  max = 50, value = 15),
-          sliderInput("max", "Maximum Number of Words:", min = 1,  max = 300,  value = 100),
-          # plotOutput("plot")
-          )
+    conditionalPanel(condition = "output.show",
+      h4("Customers opinions"),
+      actionButton("update", "Update customers feedback"),
+      hr(),
+      tabsetPanel(
+        id = 'dataset',
+        tabPanel( "Words cloud",
+                  sidebarLayout(
+                    sliderInput("freq","Minimum Frequency:", min = 1,  max = 50, value = 15),
+                    sliderInput("max", "Maximum Number of Words:", min = 1,  max = 300,  value = 100)
+                  ),
+                  mainPanel(
+                    plotOutput("plot")
+                  )
+        ),
+        tabPanel("User comments", DT::dataTableOutput("tip"))
       )
-    )
-  ) 
+    ) 
+  )
 )
 )

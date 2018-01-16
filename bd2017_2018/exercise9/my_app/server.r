@@ -8,6 +8,7 @@ library(UsingR)
 library(leaflet)
 library(maps)
 library(DT)
+library(shinyjs)
 
 # Read pre-processed data
 #
@@ -16,7 +17,21 @@ business<-read.table("business.dat")
 
 shinyServer(
   
-  function(input, output) {
+ 
+  
+  function(input, output, session) {
+    
+    values<-reactiveValues()
+    values$show <- FALSE
+    
+    output$show <- reactive({
+      return(values$show)
+    })
+    
+    observe({
+      values$show <- TRUE
+    })
+    
     
     output$map <-renderLeaflet({      
       
@@ -85,32 +100,60 @@ shinyServer(
 
       
       # generate map        
-      mymap<-leaflet() %>% 
-        addTiles() %>% 
+      map <- leaflet() %>% 
         addTiles(urlTemplate = "http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png")  %>%  
         mapOptions(zoomToLimits="always") %>%             
         addMarkers(lat = business_filtered$bus_rest.latitude,
                    lng = business_filtered$bus_rest.longitude,
+                   layerId = business_filtered$bus_rest.business_id,
                    clusterOptions = markerClusterOptions(),
-                   popup = business_filtered$bus_rest.business_id) 
-      mymap
+                   popup = business_filtered$bus_rest.name) # ARREGLAR POP UPS - POR QUE NO SALEEEEEEEEEEEEEEEEEEEEEEEEEENNNNNNN????????????????????????????
+      map
+    })
+    
+
+    # When map is clicked, show a popup with the name of the restaurant
+    observeEvent(input$map_marker_click, {
+      click <- input$map_marker_click
+      if (is.null(click))
+        return()
+
+      text<-paste("You've selected point ", click$id, " Lattitude ", click$lat, " Longitude ", click$lng)
+      print(text)
+      values$show <- TRUE
+      restaurant_comments <- tip[tip$business_id==click$id, ]
+      
+      # choose the column to display just the user comment
+      output$tip <- DT::renderDataTable(
+        restaurant_comments
+      )
+      
+      
+      # # Define a reactive expression for the document term matrix
+      # terms <- reactive({
+      #   # Change when the "update" button is pressed...
+      #   input$update
+      #   # ...but not for anything else
+      #   isolate({
+      #     withProgress({
+      #       setProgress(message = "Processing corpus...")
+      #       getTermMatrix(restaurant_comments)
+      #     })
+      #   })
+      # })
+      # 
+      # 
+      # # Make the wordcloud drawing predictable during a session
+      # wordcloud_rep <- repeatable(wordcloud)
+      # 
+      # output$plot <- renderPlot({
+      #   v <- terms()
+      #   wordcloud_rep(names(v), v, scale=c(4,0.5),
+      #                 min.freq = input$freq, max.words=input$max,
+      #                 colors=brewer.pal(8, "Dark2"))
+      # })
       
     })
-    
-    # choose the column to display just the user comment
-    output$tip <- DT::renderDataTable({
-      tip
-    })
-    
-    # Make the wordcloud drawing predictable during a session
-    wordcloud_rep <- repeatable(wordcloud)
-    
-    output$plot <- renderPlot({
-      v <- terms()
-      wordcloud_rep(names(v), v, scale=c(4,0.5),
-                    min.freq = input$freq, max.words=input$max,
-                    colors=brewer.pal(8, "Dark2"))
-    })
-    
+
   }
 )
