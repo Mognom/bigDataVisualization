@@ -1,0 +1,16 @@
+
+Para poder usar los paquetes tm y wordcount es necesario:
+
+sudo apt-get install libxml2 libxml2-dev
+sudo apt-get install r-cran-slam
+
+
+Tiene que estar la ultima verson de R
+codename=$(lsb_release -c -s)  
+ echo "deb http://ftp.iitm.ac.in/cran/bin/linux/ubuntu $codename/" | sudo tee -a /etc/apt/sources.list > /dev/null  
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9  
+ sudo add-apt-repository ppa:marutter/rdev
+sudo apt-get update  
+ sudo apt-get upgrade  
+ sudo apt-get install r-base r-base-dev  
+
