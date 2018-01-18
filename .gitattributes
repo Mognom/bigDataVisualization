@@ -1,2 +1,4 @@
 bd2017_2018/exercise9/my_app/business.dat filter=lfs diff=lfs merge=lfs -text
 bd2017_2018/exercise9/my_app/tip.dat filter=lfs diff=lfs merge=lfs -text
+bd2017_2018/exercise9/my_app/business.csv filter=lfs diff=lfs merge=lfs -text
+bd2017_2018/exercise9/my_app/tip.csv filter=lfs diff=lfs merge=lfs -text

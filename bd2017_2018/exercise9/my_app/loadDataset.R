@@ -53,8 +53,8 @@ business<-busrates[cc,]
 
 tip <- fromJSON(sprintf("[%s]", paste(readLines("./data/tip.json"), collapse=",")))
 
-write.table(business,"business.dat")
-write.table(tip,"tip.dat")
+write.csv(business,"business.csv")
+write.csv(tip,"tip.csv")
 
 
 # Gather some metrics and plot

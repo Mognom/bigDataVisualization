@@ -11,8 +11,8 @@ library(DT)
 library(shinyjs)
 
 # Read pre-processed data
-business <- read.table("business.dat")
-tip = read.table("tip.dat")
+business <- fread("https://github.com/Mognom/bigDataVisualization/blob/master/bd2017_2018/exercise9/my_app/business.dat")
+tip = fread("https://github.com/Mognom/bigDataVisualization/blob/master/bd2017_2018/exercise9/my_app/tip.dat")
 
 shinyServer(
   
