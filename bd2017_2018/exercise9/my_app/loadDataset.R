@@ -34,6 +34,7 @@ bus_dat <- fromJSON(sprintf("[%s]", paste(readLines("./data/business.json"), col
 # we are just interested in restaurants
 restaurants<-grep(pattern="Restaurants",bus_dat$categories)
 
+# useful columns
 bars<-bus_rest<-bus_dat[restaurants,]
 busrates <- data.frame(bus_rest$business_id,
                         bus_rest$stars,
@@ -50,9 +51,10 @@ busrates <- data.frame(bus_rest$business_id,
 cc<-complete.cases(busrates)
 business<-busrates[cc,]
 
-
+# we are also interested in customers opinions and reviews
 tip <- fromJSON(sprintf("[%s]", paste(readLines("./data/tip.json"), collapse=",")))
 
+# export cleaned data to upload it to an online repository
 write.csv(business,"business.csv")
 write.csv(tip,"tip.csv")
 

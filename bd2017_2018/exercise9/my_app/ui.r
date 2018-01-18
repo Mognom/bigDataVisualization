@@ -15,12 +15,10 @@ shinyUI(pageWithSidebar(
     sliderInput("stars",label="Number of stars",min=1,max=5,value=c(1,5)), 
     checkboxInput("takeout",label="Take-out",value=TRUE),
     checkboxInput("reserve", label="Takes reservations",value=TRUE),
-    checkboxInput("wifi",label="Free Wi-Fi",value=TRUE),
     checkboxInput("caters",label="Caters",value=TRUE),
     checkboxInput("groups",label="Good for groups",value=TRUE),
     checkboxInput("outdoor",label="Outdoor seating",value=TRUE),
     plotOutput("plotReviews", click = "plot_click")
-    
   ),
   
   mainPanel(
