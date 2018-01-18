@@ -7,7 +7,7 @@ library(leaflet)
 
 shinyUI(pageWithSidebar(
   
-  headerPanel("Yelp Dataset Visualization"), 
+  headerPanel("Yelp dataset restaurants reviews visualization"), 
   
   sidebarPanel(
     

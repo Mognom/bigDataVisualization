@@ -9,6 +9,11 @@ library(leaflet)
 library(maps)
 library(DT)
 library(shinyjs)
+library(shiny)
+library(tm)
+library(wordcloud)
+library(memoise)
+library(maps)
 
 # Read pre-processed data
 business <- read.csv("https://media.githubusercontent.com/media/Mognom/bigDataVisualization/master/bd2017_2018/exercise9/my_app/business.csv")
