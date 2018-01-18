@@ -18,7 +18,9 @@ shinyUI(pageWithSidebar(
     checkboxInput("wifi",label="Free Wi-Fi",value=TRUE),
     checkboxInput("caters",label="Caters",value=TRUE),
     checkboxInput("groups",label="Good for groups",value=TRUE),
-    checkboxInput("outdoor",label="Outdoor seating",value=TRUE)
+    checkboxInput("outdoor",label="Outdoor seating",value=TRUE),
+    plotOutput("plotReviews", click = "plot_click")
+    
   ),
   
   mainPanel(
@@ -26,17 +28,14 @@ shinyUI(pageWithSidebar(
     leafletOutput("map",width="100%",height=500),
     conditionalPanel(condition = "output.show",
       h4("Customers opinions"),
-      actionButton("update", "Update customers feedback"),
-      hr(),
       tabsetPanel(
         id = 'dataset',
         tabPanel( "Words cloud",
-                  sidebarLayout(
-                    sliderInput("freq","Minimum Frequency:", min = 1,  max = 50, value = 15),
-                    sliderInput("max", "Maximum Number of Words:", min = 1,  max = 300,  value = 100)
-                  ),
                   mainPanel(
-                    plotOutput("plot")
+                    plotOutput("plot", width = "110%", height = "450px"),
+                    hr(),
+                    sliderInput("freq","Minimum Frequency:", min = 1,  max = 50, value = 15),
+                    sliderInput("max", "Maximum Number of Words:", min = 1,  max = 100,  value = 90)
                   )
         ),
         tabPanel("User comments", DT::dataTableOutput("tip"))
