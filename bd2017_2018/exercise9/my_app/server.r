@@ -2,6 +2,17 @@
 #  server.r
 #
 
+# Descomentar la primera vez si no se tienen los paquetes
+# install.packages("jsonlite")
+# install.packages("leaflet")
+# install.packages("UsingR")
+# install.packages("DT")
+# install.packages("slam")
+# install.packages("tm")
+# install.packages("wordcloud")
+# install.packages("memoise")
+# install.packages("maps")
+# install.packages("shinyjs")
 
 library(jsonlite)
 library(UsingR)
